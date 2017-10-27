@@ -27,9 +27,11 @@ Partial Class frmServerSettings
         Me.Label2 = New System.Windows.Forms.Label()
         Me.cbDBType = New System.Windows.Forms.ComboBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.CtrlAccessDBConnection1 = New Server.ctrlAccessDBConnection()
-        Me.CtrlSQLDBConnection1 = New Server.ctrlSQLDBConnection()
         Me.CtrlXMLDBConnection1 = New Server.ctrlXMLDBConnection()
+        Me.CtrlSQLDBConnection1 = New Server.ctrlSQLDBConnection()
+        Me.CtrlAccessDBConnection1 = New Server.ctrlAccessDBConnection()
+        Me.btnOK = New System.Windows.Forms.Button()
+        Me.btnCancel = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -60,7 +62,9 @@ Partial Class frmServerSettings
         '
         'cbDBType
         '
+        Me.cbDBType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbDBType.FormattingEnabled = True
+        Me.cbDBType.Items.AddRange(New Object() {"MS SQL", "MS Access", "XML"})
         Me.cbDBType.Location = New System.Drawing.Point(88, 38)
         Me.cbDBType.Name = "cbDBType"
         Me.cbDBType.Size = New System.Drawing.Size(121, 21)
@@ -73,22 +77,8 @@ Partial Class frmServerSettings
         Me.Panel1.Controls.Add(Me.CtrlAccessDBConnection1)
         Me.Panel1.Location = New System.Drawing.Point(6, 65)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(259, 226)
+        Me.Panel1.Size = New System.Drawing.Size(259, 205)
         Me.Panel1.TabIndex = 5
-        '
-        'CtrlAccessDBConnection1
-        '
-        Me.CtrlAccessDBConnection1.Location = New System.Drawing.Point(3, 116)
-        Me.CtrlAccessDBConnection1.Name = "CtrlAccessDBConnection1"
-        Me.CtrlAccessDBConnection1.Size = New System.Drawing.Size(184, 52)
-        Me.CtrlAccessDBConnection1.TabIndex = 0
-        '
-        'CtrlSQLDBConnection1
-        '
-        Me.CtrlSQLDBConnection1.Location = New System.Drawing.Point(3, 3)
-        Me.CtrlSQLDBConnection1.Name = "CtrlSQLDBConnection1"
-        Me.CtrlSQLDBConnection1.Size = New System.Drawing.Size(244, 107)
-        Me.CtrlSQLDBConnection1.TabIndex = 1
         '
         'CtrlXMLDBConnection1
         '
@@ -97,11 +87,47 @@ Partial Class frmServerSettings
         Me.CtrlXMLDBConnection1.Size = New System.Drawing.Size(184, 25)
         Me.CtrlXMLDBConnection1.TabIndex = 2
         '
+        'CtrlSQLDBConnection1
+        '
+        Me.CtrlSQLDBConnection1.Location = New System.Drawing.Point(3, 3)
+        Me.CtrlSQLDBConnection1.Name = "CtrlSQLDBConnection1"
+        Me.CtrlSQLDBConnection1.Size = New System.Drawing.Size(244, 107)
+        Me.CtrlSQLDBConnection1.TabIndex = 1
+        '
+        'CtrlAccessDBConnection1
+        '
+        Me.CtrlAccessDBConnection1.Location = New System.Drawing.Point(3, 116)
+        Me.CtrlAccessDBConnection1.Name = "CtrlAccessDBConnection1"
+        Me.CtrlAccessDBConnection1.Size = New System.Drawing.Size(184, 52)
+        Me.CtrlAccessDBConnection1.TabIndex = 0
+        '
+        'btnOK
+        '
+        Me.btnOK.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnOK.Location = New System.Drawing.Point(178, 273)
+        Me.btnOK.Name = "btnOK"
+        Me.btnOK.Size = New System.Drawing.Size(75, 23)
+        Me.btnOK.TabIndex = 6
+        Me.btnOK.Text = "OK"
+        Me.btnOK.UseVisualStyleBackColor = True
+        '
+        'btnCancel
+        '
+        Me.btnCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btnCancel.Location = New System.Drawing.Point(12, 273)
+        Me.btnCancel.Name = "btnCancel"
+        Me.btnCancel.Size = New System.Drawing.Size(75, 23)
+        Me.btnCancel.TabIndex = 7
+        Me.btnCancel.Text = "Cancel"
+        Me.btnCancel.UseVisualStyleBackColor = True
+        '
         'frmServerSettings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(271, 296)
+        Me.ClientSize = New System.Drawing.Size(265, 308)
+        Me.Controls.Add(Me.btnCancel)
+        Me.Controls.Add(Me.btnOK)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.cbDBType)
         Me.Controls.Add(Me.Label2)
@@ -122,4 +148,6 @@ Partial Class frmServerSettings
     Friend WithEvents CtrlXMLDBConnection1 As ctrlXMLDBConnection
     Friend WithEvents CtrlSQLDBConnection1 As ctrlSQLDBConnection
     Friend WithEvents CtrlAccessDBConnection1 As ctrlAccessDBConnection
+    Friend WithEvents btnOK As Button
+    Friend WithEvents btnCancel As Button
 End Class

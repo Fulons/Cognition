@@ -95,31 +95,31 @@ Partial Class frmClient
         'mnuLogin
         '
         Me.mnuLogin.Name = "mnuLogin"
-        Me.mnuLogin.Size = New System.Drawing.Size(152, 22)
+        Me.mnuLogin.Size = New System.Drawing.Size(119, 22)
         Me.mnuLogin.Text = "Login"
         '
         'mnuLogout
         '
         Me.mnuLogout.Name = "mnuLogout"
-        Me.mnuLogout.Size = New System.Drawing.Size(152, 22)
+        Me.mnuLogout.Size = New System.Drawing.Size(119, 22)
         Me.mnuLogout.Text = "Logout"
         '
         'mnuChatLog
         '
         Me.mnuChatLog.Name = "mnuChatLog"
-        Me.mnuChatLog.Size = New System.Drawing.Size(152, 22)
+        Me.mnuChatLog.Size = New System.Drawing.Size(119, 22)
         Me.mnuChatLog.Text = "Chat log"
         '
         'mnuHelp
         '
         Me.mnuHelp.Name = "mnuHelp"
-        Me.mnuHelp.Size = New System.Drawing.Size(152, 22)
+        Me.mnuHelp.Size = New System.Drawing.Size(119, 22)
         Me.mnuHelp.Text = "Help"
         '
         'mnuExit
         '
         Me.mnuExit.Name = "mnuExit"
-        Me.mnuExit.Size = New System.Drawing.Size(152, 22)
+        Me.mnuExit.Size = New System.Drawing.Size(119, 22)
         Me.mnuExit.Text = "Exit"
         '
         'frmClient

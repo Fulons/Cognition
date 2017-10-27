@@ -42,7 +42,7 @@ Partial Class frmConsole
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.rtxtConsole.Location = New System.Drawing.Point(12, 27)
         Me.rtxtConsole.Name = "rtxtConsole"
-        Me.rtxtConsole.Size = New System.Drawing.Size(601, 320)
+        Me.rtxtConsole.Size = New System.Drawing.Size(562, 381)
         Me.rtxtConsole.TabIndex = 0
         Me.rtxtConsole.Text = ""
         '
@@ -51,24 +51,24 @@ Partial Class frmConsole
         Me.lbUsers.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lbUsers.FormattingEnabled = True
-        Me.lbUsers.Location = New System.Drawing.Point(619, 27)
+        Me.lbUsers.Location = New System.Drawing.Point(580, 27)
         Me.lbUsers.Name = "lbUsers"
-        Me.lbUsers.Size = New System.Drawing.Size(120, 342)
+        Me.lbUsers.Size = New System.Drawing.Size(120, 407)
         Me.lbUsers.TabIndex = 1
         '
         'txtConsoleInput
         '
         Me.txtConsoleInput.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtConsoleInput.Location = New System.Drawing.Point(12, 353)
+        Me.txtConsoleInput.Location = New System.Drawing.Point(12, 414)
         Me.txtConsoleInput.Name = "txtConsoleInput"
-        Me.txtConsoleInput.Size = New System.Drawing.Size(520, 20)
+        Me.txtConsoleInput.Size = New System.Drawing.Size(481, 20)
         Me.txtConsoleInput.TabIndex = 2
         '
         'btnSubmit
         '
         Me.btnSubmit.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnSubmit.Location = New System.Drawing.Point(538, 351)
+        Me.btnSubmit.Location = New System.Drawing.Point(499, 412)
         Me.btnSubmit.Name = "btnSubmit"
         Me.btnSubmit.Size = New System.Drawing.Size(75, 23)
         Me.btnSubmit.TabIndex = 3
@@ -80,7 +80,7 @@ Partial Class frmConsole
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(751, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(712, 24)
         Me.MenuStrip1.TabIndex = 4
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -94,32 +94,32 @@ Partial Class frmConsole
         'ConnectToolStripMenuItem
         '
         Me.ConnectToolStripMenuItem.Name = "ConnectToolStripMenuItem"
-        Me.ConnectToolStripMenuItem.Size = New System.Drawing.Size(133, 22)
+        Me.ConnectToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ConnectToolStripMenuItem.Text = "Connect"
         '
         'DisconnectToolStripMenuItem
         '
         Me.DisconnectToolStripMenuItem.Name = "DisconnectToolStripMenuItem"
-        Me.DisconnectToolStripMenuItem.Size = New System.Drawing.Size(133, 22)
+        Me.DisconnectToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.DisconnectToolStripMenuItem.Text = "Disconnect"
         '
         'SettingsToolStripMenuItem
         '
         Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
-        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(133, 22)
+        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.SettingsToolStripMenuItem.Text = "Settings"
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(133, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'frmConsole
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(751, 380)
+        Me.ClientSize = New System.Drawing.Size(712, 441)
         Me.Controls.Add(Me.btnSubmit)
         Me.Controls.Add(Me.txtConsoleInput)
         Me.Controls.Add(Me.lbUsers)

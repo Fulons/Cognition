@@ -1,8 +1,18 @@
 ﻿Public Class ctrlIP
 
+    Public Function GetPort() As Integer
+        Return CType(txtPort.Text, Integer)
+    End Function
+
     Public Function GetIPString() As String
         Dim ret As String = ""
-        ret = ret + txtIP1.Text + "." + txtIP2.Text + "." + txtIP3.Text + "." + txtIP4.Text + ":" + txtPort.Text
+        ret = ret + txtIP1.Text + "." + txtIP2.Text + "." + txtIP3.Text + "." + txtIP4.Text
+        Return ret
+    End Function
+
+    Public Function GetIPPortString() As String
+        Dim ret As String = ""
+        ret = ret + GetIPString() + ":" + txtPort.Text
         Return ret
     End Function
 

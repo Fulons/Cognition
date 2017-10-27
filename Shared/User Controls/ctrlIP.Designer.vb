@@ -35,6 +35,7 @@ Partial Class ctrlIP
         Me.txtIP1.Name = "txtIP1"
         Me.txtIP1.Size = New System.Drawing.Size(27, 20)
         Me.txtIP1.TabIndex = 0
+        Me.txtIP1.Text = "127"
         '
         'txtIP2
         '
@@ -42,6 +43,7 @@ Partial Class ctrlIP
         Me.txtIP2.Name = "txtIP2"
         Me.txtIP2.Size = New System.Drawing.Size(27, 20)
         Me.txtIP2.TabIndex = 1
+        Me.txtIP2.Text = "0"
         '
         'txtIP3
         '
@@ -49,6 +51,7 @@ Partial Class ctrlIP
         Me.txtIP3.Name = "txtIP3"
         Me.txtIP3.Size = New System.Drawing.Size(27, 20)
         Me.txtIP3.TabIndex = 2
+        Me.txtIP3.Text = "0"
         '
         'txtIP4
         '
@@ -56,6 +59,7 @@ Partial Class ctrlIP
         Me.txtIP4.Name = "txtIP4"
         Me.txtIP4.Size = New System.Drawing.Size(27, 20)
         Me.txtIP4.TabIndex = 3
+        Me.txtIP4.Text = "1"
         '
         'txtPort
         '
@@ -63,6 +67,7 @@ Partial Class ctrlIP
         Me.txtPort.Name = "txtPort"
         Me.txtPort.Size = New System.Drawing.Size(38, 20)
         Me.txtPort.TabIndex = 4
+        Me.txtPort.Text = "8379"
         '
         'ctrlIP
         '

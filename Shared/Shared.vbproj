@@ -65,12 +65,16 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ctrlIP.Designer.vb">
+    <Compile Include="Client.vb" />
+    <Compile Include="EventArguments\ClientValidatingEventArgs.vb" />
+    <Compile Include="User Controls\ctrlIP.Designer.vb">
       <DependentUpon>ctrlIP.vb</DependentUpon>
     </Compile>
-    <Compile Include="ctrlIP.vb">
+    <Compile Include="User Controls\ctrlIP.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="EventArguments\FileUploadRequestEventArguments.vb" />
+    <Compile Include="MessageBase.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -86,9 +90,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Receiver.vb" />
+    <Compile Include="Server.vb" />
+    <Compile Include="EventArguments\SessionRequestEventArguments.vb" />
+    <Compile Include="UserDB.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ctrlIP.resx">
+    <EmbeddedResource Include="User Controls\ctrlIP.resx">
       <DependentUpon>ctrlIP.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
