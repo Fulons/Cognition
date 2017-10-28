@@ -8,16 +8,20 @@
             Me.Hide()
             frmClient.client.Login(txtUsername.Text, txtPassword.Text,
                                    Sub(SenderClient, response)
-                                       If response.isValid Then         'If login is accepted
+                                       If response.isValid Then             'If login is accepted
                                            frmClient.client.status = [Shared].StatusEnum.Connected
                                            frmClient.mnuLogin.Enabled = False
                                            frmClient.mnuLogout.Enabled = True
-                                       Else                             'If login is not accepted
+                                           frmClient.tmrConnectionTimeout.Stop()
+                                           MessageBox.Show("Login success!")
+                                       Else                                 'If login is not accepted
                                            frmClient.mnuLogin.Enabled = True
                                            frmClient.mnuLogout.Enabled = False
+                                           frmClient.tmrConnectionTimeout.Stop()
                                            MessageBox.Show("Login failed! Please assure that username and password is typed in correctly")
                                        End If
                                    End Sub)
+            frmClient.tmrConnectionTimeout.Start()
         End If
     End Sub
 End Class

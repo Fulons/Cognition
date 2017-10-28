@@ -34,6 +34,7 @@ Partial Class frmSession
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.rtxtChat.Location = New System.Drawing.Point(12, 12)
         Me.rtxtChat.Name = "rtxtChat"
+        Me.rtxtChat.ReadOnly = True
         Me.rtxtChat.Size = New System.Drawing.Size(899, 537)
         Me.rtxtChat.TabIndex = 3
         Me.rtxtChat.Text = ""

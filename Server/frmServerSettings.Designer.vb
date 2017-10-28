@@ -27,9 +27,9 @@ Partial Class frmServerSettings
         Me.Label2 = New System.Windows.Forms.Label()
         Me.cbDBType = New System.Windows.Forms.ComboBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.CtrlXMLDBConnection1 = New Server.ctrlXMLDBConnection()
-        Me.CtrlSQLDBConnection1 = New Server.ctrlSQLDBConnection()
-        Me.CtrlAccessDBConnection1 = New Server.ctrlAccessDBConnection()
+        Me.ccXMLDBConnection = New Server.ctrlXMLDBConnection()
+        Me.ccSQLDBConnection = New Server.ctrlSQLDBConnection()
+        Me.ccAccessDBConnection = New Server.ctrlAccessDBConnection()
         Me.btnOK = New System.Windows.Forms.Button()
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
@@ -72,34 +72,34 @@ Partial Class frmServerSettings
         '
         'Panel1
         '
-        Me.Panel1.Controls.Add(Me.CtrlXMLDBConnection1)
-        Me.Panel1.Controls.Add(Me.CtrlSQLDBConnection1)
-        Me.Panel1.Controls.Add(Me.CtrlAccessDBConnection1)
+        Me.Panel1.Controls.Add(Me.ccXMLDBConnection)
+        Me.Panel1.Controls.Add(Me.ccSQLDBConnection)
+        Me.Panel1.Controls.Add(Me.ccAccessDBConnection)
         Me.Panel1.Location = New System.Drawing.Point(6, 65)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(259, 205)
         Me.Panel1.TabIndex = 5
         '
-        'CtrlXMLDBConnection1
+        'ccXMLDBConnection
         '
-        Me.CtrlXMLDBConnection1.Location = New System.Drawing.Point(3, 174)
-        Me.CtrlXMLDBConnection1.Name = "CtrlXMLDBConnection1"
-        Me.CtrlXMLDBConnection1.Size = New System.Drawing.Size(184, 25)
-        Me.CtrlXMLDBConnection1.TabIndex = 2
+        Me.ccXMLDBConnection.Location = New System.Drawing.Point(3, 174)
+        Me.ccXMLDBConnection.Name = "ccXMLDBConnection"
+        Me.ccXMLDBConnection.Size = New System.Drawing.Size(184, 25)
+        Me.ccXMLDBConnection.TabIndex = 2
         '
-        'CtrlSQLDBConnection1
+        'ccSQLDBConnection
         '
-        Me.CtrlSQLDBConnection1.Location = New System.Drawing.Point(3, 3)
-        Me.CtrlSQLDBConnection1.Name = "CtrlSQLDBConnection1"
-        Me.CtrlSQLDBConnection1.Size = New System.Drawing.Size(244, 107)
-        Me.CtrlSQLDBConnection1.TabIndex = 1
+        Me.ccSQLDBConnection.Location = New System.Drawing.Point(3, 3)
+        Me.ccSQLDBConnection.Name = "ccSQLDBConnection"
+        Me.ccSQLDBConnection.Size = New System.Drawing.Size(244, 107)
+        Me.ccSQLDBConnection.TabIndex = 1
         '
-        'CtrlAccessDBConnection1
+        'ccAccessDBConnection
         '
-        Me.CtrlAccessDBConnection1.Location = New System.Drawing.Point(3, 116)
-        Me.CtrlAccessDBConnection1.Name = "CtrlAccessDBConnection1"
-        Me.CtrlAccessDBConnection1.Size = New System.Drawing.Size(184, 52)
-        Me.CtrlAccessDBConnection1.TabIndex = 0
+        Me.ccAccessDBConnection.Location = New System.Drawing.Point(3, 116)
+        Me.ccAccessDBConnection.Name = "ccAccessDBConnection"
+        Me.ccAccessDBConnection.Size = New System.Drawing.Size(184, 52)
+        Me.ccAccessDBConnection.TabIndex = 0
         '
         'btnOK
         '
@@ -133,6 +133,7 @@ Partial Class frmServerSettings
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtPort)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "frmServerSettings"
         Me.Text = "frmServerSettings"
         Me.Panel1.ResumeLayout(False)
@@ -145,9 +146,9 @@ Partial Class frmServerSettings
     Friend WithEvents Label2 As Label
     Friend WithEvents cbDBType As ComboBox
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents CtrlXMLDBConnection1 As ctrlXMLDBConnection
-    Friend WithEvents CtrlSQLDBConnection1 As ctrlSQLDBConnection
-    Friend WithEvents CtrlAccessDBConnection1 As ctrlAccessDBConnection
+    Friend WithEvents ccXMLDBConnection As ctrlXMLDBConnection
+    Friend WithEvents ccSQLDBConnection As ctrlSQLDBConnection
+    Friend WithEvents ccAccessDBConnection As ctrlAccessDBConnection
     Friend WithEvents btnOK As Button
     Friend WithEvents btnCancel As Button
 End Class

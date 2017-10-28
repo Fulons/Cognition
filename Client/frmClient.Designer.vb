@@ -22,6 +22,7 @@ Partial Class frmClient
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.rtxtChat = New System.Windows.Forms.RichTextBox()
         Me.lbUsers = New System.Windows.Forms.ListBox()
         Me.txtMessageInput = New System.Windows.Forms.TextBox()
@@ -33,6 +34,7 @@ Partial Class frmClient
         Me.mnuChatLog = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuHelp = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuExit = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tmrConnectionTimeout = New System.Windows.Forms.Timer(Me.components)
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -43,6 +45,7 @@ Partial Class frmClient
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.rtxtChat.Location = New System.Drawing.Point(12, 27)
         Me.rtxtChat.Name = "rtxtChat"
+        Me.rtxtChat.ReadOnly = True
         Me.rtxtChat.Size = New System.Drawing.Size(583, 421)
         Me.rtxtChat.TabIndex = 0
         Me.rtxtChat.Text = ""
@@ -122,6 +125,10 @@ Partial Class frmClient
         Me.mnuExit.Size = New System.Drawing.Size(119, 22)
         Me.mnuExit.Text = "Exit"
         '
+        'tmrConnectionTimeout
+        '
+        Me.tmrConnectionTimeout.Interval = 2000
+        '
         'frmClient
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -153,4 +160,5 @@ Partial Class frmClient
     Friend WithEvents mnuChatLog As ToolStripMenuItem
     Friend WithEvents mnuHelp As ToolStripMenuItem
     Friend WithEvents mnuExit As ToolStripMenuItem
+    Friend WithEvents tmrConnectionTimeout As Timer
 End Class

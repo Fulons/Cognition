@@ -42,6 +42,7 @@ Partial Class frmConsole
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.rtxtConsole.Location = New System.Drawing.Point(12, 27)
         Me.rtxtConsole.Name = "rtxtConsole"
+        Me.rtxtConsole.ReadOnly = True
         Me.rtxtConsole.Size = New System.Drawing.Size(562, 381)
         Me.rtxtConsole.TabIndex = 0
         Me.rtxtConsole.Text = ""
@@ -94,25 +95,25 @@ Partial Class frmConsole
         'ConnectToolStripMenuItem
         '
         Me.ConnectToolStripMenuItem.Name = "ConnectToolStripMenuItem"
-        Me.ConnectToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ConnectToolStripMenuItem.Size = New System.Drawing.Size(133, 22)
         Me.ConnectToolStripMenuItem.Text = "Connect"
         '
         'DisconnectToolStripMenuItem
         '
         Me.DisconnectToolStripMenuItem.Name = "DisconnectToolStripMenuItem"
-        Me.DisconnectToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.DisconnectToolStripMenuItem.Size = New System.Drawing.Size(133, 22)
         Me.DisconnectToolStripMenuItem.Text = "Disconnect"
         '
         'SettingsToolStripMenuItem
         '
         Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
-        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(133, 22)
         Me.SettingsToolStripMenuItem.Text = "Settings"
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(133, 22)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'frmConsole

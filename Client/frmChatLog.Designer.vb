@@ -43,6 +43,7 @@ Partial Class frmChatLog
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.rtxtChatLog.Location = New System.Drawing.Point(12, 12)
         Me.rtxtChatLog.Name = "rtxtChatLog"
+        Me.rtxtChatLog.ReadOnly = True
         Me.rtxtChatLog.Size = New System.Drawing.Size(719, 524)
         Me.rtxtChatLog.TabIndex = 2
         Me.rtxtChatLog.Text = ""

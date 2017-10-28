@@ -10,4 +10,12 @@
     Private Sub btnOK_Click(sender As Object, e As EventArgs) Handles btnOK.Click
         Me.Hide()
     End Sub
+
+    Private Sub frmServerSettings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        cbDBType.SelectedIndex = 0
+        txtPort.Text = "8888"
+        ccSQLDBConnection.txtDatabase.Text = "UserData"
+        ccSQLDBConnection.txtUsername.Text = "tmp"
+        ccSQLDBConnection.txtPassword.Text = "tmp"
+    End Sub
 End Class
