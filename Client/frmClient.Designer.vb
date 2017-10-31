@@ -35,7 +35,10 @@ Partial Class frmClient
         Me.mnuHelp = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuExit = New System.Windows.Forms.ToolStripMenuItem()
         Me.tmrConnectionTimeout = New System.Windows.Forms.Timer(Me.components)
+        Me.mnuRightClick = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.mnuStartSession = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
+        Me.mnuRightClick.SuspendLayout()
         Me.SuspendLayout()
         '
         'rtxtChat
@@ -129,6 +132,18 @@ Partial Class frmClient
         '
         Me.tmrConnectionTimeout.Interval = 2000
         '
+        'mnuRightClick
+        '
+        Me.mnuRightClick.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuStartSession})
+        Me.mnuRightClick.Name = "mnuRightClick"
+        Me.mnuRightClick.Size = New System.Drawing.Size(179, 26)
+        '
+        'mnuStartSession
+        '
+        Me.mnuStartSession.Name = "mnuStartSession"
+        Me.mnuStartSession.Size = New System.Drawing.Size(178, 22)
+        Me.mnuStartSession.Text = "Start private session"
+        '
         'frmClient
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -144,6 +159,7 @@ Partial Class frmClient
         Me.Text = "frmClient"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
+        Me.mnuRightClick.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -161,4 +177,6 @@ Partial Class frmClient
     Friend WithEvents mnuHelp As ToolStripMenuItem
     Friend WithEvents mnuExit As ToolStripMenuItem
     Friend WithEvents tmrConnectionTimeout As Timer
+    Friend WithEvents mnuRightClick As ContextMenuStrip
+    Friend WithEvents mnuStartSession As ToolStripMenuItem
 End Class

@@ -28,10 +28,10 @@ Partial Class frmConsole
         Me.btnSubmit = New System.Windows.Forms.Button()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ConnectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DisconnectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuConnect = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuDisconnect = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuSettings = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuExit = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -87,34 +87,34 @@ Partial Class frmConsole
         '
         'FileToolStripMenuItem
         '
-        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ConnectToolStripMenuItem, Me.DisconnectToolStripMenuItem, Me.SettingsToolStripMenuItem, Me.ExitToolStripMenuItem})
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuConnect, Me.mnuDisconnect, Me.mnuSettings, Me.mnuExit})
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
         Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
         Me.FileToolStripMenuItem.Text = "File"
         '
-        'ConnectToolStripMenuItem
+        'mnuConnect
         '
-        Me.ConnectToolStripMenuItem.Name = "ConnectToolStripMenuItem"
-        Me.ConnectToolStripMenuItem.Size = New System.Drawing.Size(133, 22)
-        Me.ConnectToolStripMenuItem.Text = "Connect"
+        Me.mnuConnect.Name = "mnuConnect"
+        Me.mnuConnect.Size = New System.Drawing.Size(152, 22)
+        Me.mnuConnect.Text = "Connect"
         '
-        'DisconnectToolStripMenuItem
+        'mnuDisconnect
         '
-        Me.DisconnectToolStripMenuItem.Name = "DisconnectToolStripMenuItem"
-        Me.DisconnectToolStripMenuItem.Size = New System.Drawing.Size(133, 22)
-        Me.DisconnectToolStripMenuItem.Text = "Disconnect"
+        Me.mnuDisconnect.Name = "mnuDisconnect"
+        Me.mnuDisconnect.Size = New System.Drawing.Size(152, 22)
+        Me.mnuDisconnect.Text = "Disconnect"
         '
-        'SettingsToolStripMenuItem
+        'mnuSettings
         '
-        Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
-        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(133, 22)
-        Me.SettingsToolStripMenuItem.Text = "Settings"
+        Me.mnuSettings.Name = "mnuSettings"
+        Me.mnuSettings.Size = New System.Drawing.Size(152, 22)
+        Me.mnuSettings.Text = "Settings"
         '
-        'ExitToolStripMenuItem
+        'mnuExit
         '
-        Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(133, 22)
-        Me.ExitToolStripMenuItem.Text = "Exit"
+        Me.mnuExit.Name = "mnuExit"
+        Me.mnuExit.Size = New System.Drawing.Size(152, 22)
+        Me.mnuExit.Text = "Exit"
         '
         'frmConsole
         '
@@ -142,8 +142,8 @@ Partial Class frmConsole
     Friend WithEvents btnSubmit As Button
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents FileToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ConnectToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents DisconnectToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents SettingsToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents mnuConnect As ToolStripMenuItem
+    Friend WithEvents mnuDisconnect As ToolStripMenuItem
+    Friend WithEvents mnuSettings As ToolStripMenuItem
+    Friend WithEvents mnuExit As ToolStripMenuItem
 End Class

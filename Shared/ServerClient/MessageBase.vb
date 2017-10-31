@@ -1,5 +1,4 @@
-﻿
-Imports System.Runtime.Serialization.Formatters.Binary
+﻿Imports System.Runtime.Serialization.Formatters.Binary
 
 Public Class FileHelper
     Public Shared Function SampleBytesFromFile(filepath As String, currentPosition As Integer, bufferSize As Integer) As Byte()

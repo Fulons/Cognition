@@ -7,7 +7,7 @@
         e.Handled = True
     End Sub
 
-    Private Sub btnOK_Click(sender As Object, e As EventArgs) Handles btnOK.Click
+    Private Sub btnOK_Click(sender As Object, e As EventArgs) Handles btnOK.Click, btnCancel.Click
         Me.Hide()
     End Sub
 

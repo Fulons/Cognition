@@ -89,10 +89,11 @@
         frmServerSettings.ShowDialog()
     End Sub
 
-    Private Sub ConnectToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConnectToolStripMenuItem.Click
+    Private Sub ConnectToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles mnuConnect.Click
         'Starts the server
         server = New [Shared].Server(frmServerSettings.txtPort.Text)
         server.Start()
+        mnuConnect.Enabled = False
 
         'Initialises user database
         Select Case frmServerSettings.cbDBType.Text

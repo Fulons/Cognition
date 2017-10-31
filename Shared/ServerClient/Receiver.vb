@@ -117,6 +117,7 @@ Public Class Receiver
         ElseIf TypeOf m Is PublicMessageRequest Then
             PublicMessageRequestHandler(m)
         ElseIf otherSideReciever IsNot Nothing Then
+
             otherSideReciever.SendMessage(m)
         End If
     End Sub
