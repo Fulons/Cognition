@@ -12,7 +12,7 @@
         rtxtConsole.SelectionColor = Color.DarkRed
         rtxtConsole.AppendText("INFO: ")
         rtxtConsole.SelectionColor = Color.Black
-        rtxtConsole.AppendText(str)
+        rtxtConsole.AppendText(str + vbNewLine)
     End Sub
 
     Delegate Sub AddConsoleUserInfoDelegate(user As String, str As String)
@@ -32,7 +32,7 @@
 
 #Region "Server event handlers"
     Private Sub ClientConnected(r As [Shared].Receiver) Handles server.ClientConnected
-        'UpdateClientList()
+
     End Sub
 
     Private Sub ClientVaildating(args As [Shared].ClientValidatingEventArgs) Handles server.ClientVaildating
@@ -75,7 +75,7 @@
 
     Private Sub ClientValidatedFail(r As [Shared].Receiver) Handles server.ClientValidatedFail
         AddConsoleUserInfo(r.username, "validation success!")
-        UpdateClientList()
+
     End Sub
 
     Private Sub ClientDisconnected(r As [Shared].Receiver) Handles server.ClientDisconnected

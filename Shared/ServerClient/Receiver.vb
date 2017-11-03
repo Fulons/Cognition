@@ -50,6 +50,8 @@ Public Class Receiver
     Private Sub Disconnect()
         If status = StatusEnum.Disconnected Then Return
         If otherSideReciever IsNot Nothing Then
+            Dim m As New EndSessionRequest
+            otherSideReciever.SendMessage(m)
             otherSideReciever.otherSideReciever = Nothing
             otherSideReciever.status = StatusEnum.Validated
             otherSideReciever = Nothing
