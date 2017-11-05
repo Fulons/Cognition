@@ -22,4 +22,8 @@
         End If
         e.Handled = True
     End Sub
+
+    Private Sub txtPort_TextChanged(sender As Object, e As EventArgs) Handles txtPort.TextChanged
+
+    End Sub
 End Class

@@ -37,6 +37,8 @@ Partial Class frmClient
         Me.tmrConnectionTimeout = New System.Windows.Forms.Timer(Me.components)
         Me.mnuRightClick = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.mnuStartSession = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TestsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuTest1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.mnuRightClick.SuspendLayout()
         Me.SuspendLayout()
@@ -84,7 +86,7 @@ Partial Class frmClient
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.TestsToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(733, 24)
@@ -101,31 +103,31 @@ Partial Class frmClient
         'mnuLogin
         '
         Me.mnuLogin.Name = "mnuLogin"
-        Me.mnuLogin.Size = New System.Drawing.Size(119, 22)
+        Me.mnuLogin.Size = New System.Drawing.Size(152, 22)
         Me.mnuLogin.Text = "Login"
         '
         'mnuLogout
         '
         Me.mnuLogout.Name = "mnuLogout"
-        Me.mnuLogout.Size = New System.Drawing.Size(119, 22)
+        Me.mnuLogout.Size = New System.Drawing.Size(152, 22)
         Me.mnuLogout.Text = "Logout"
         '
         'mnuChatLog
         '
         Me.mnuChatLog.Name = "mnuChatLog"
-        Me.mnuChatLog.Size = New System.Drawing.Size(119, 22)
+        Me.mnuChatLog.Size = New System.Drawing.Size(152, 22)
         Me.mnuChatLog.Text = "Chat log"
         '
         'mnuHelp
         '
         Me.mnuHelp.Name = "mnuHelp"
-        Me.mnuHelp.Size = New System.Drawing.Size(119, 22)
+        Me.mnuHelp.Size = New System.Drawing.Size(152, 22)
         Me.mnuHelp.Text = "Help"
         '
         'mnuExit
         '
         Me.mnuExit.Name = "mnuExit"
-        Me.mnuExit.Size = New System.Drawing.Size(119, 22)
+        Me.mnuExit.Size = New System.Drawing.Size(152, 22)
         Me.mnuExit.Text = "Exit"
         '
         'tmrConnectionTimeout
@@ -143,6 +145,19 @@ Partial Class frmClient
         Me.mnuStartSession.Name = "mnuStartSession"
         Me.mnuStartSession.Size = New System.Drawing.Size(178, 22)
         Me.mnuStartSession.Text = "Start private session"
+        '
+        'TestsToolStripMenuItem
+        '
+        Me.TestsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuTest1})
+        Me.TestsToolStripMenuItem.Name = "TestsToolStripMenuItem"
+        Me.TestsToolStripMenuItem.Size = New System.Drawing.Size(45, 20)
+        Me.TestsToolStripMenuItem.Text = "Tests"
+        '
+        'mnuTest1
+        '
+        Me.mnuTest1.Name = "mnuTest1"
+        Me.mnuTest1.Size = New System.Drawing.Size(171, 22)
+        Me.mnuTest1.Text = "Test1(Placeholder)"
         '
         'frmClient
         '
@@ -179,4 +194,6 @@ Partial Class frmClient
     Friend WithEvents tmrConnectionTimeout As Timer
     Friend WithEvents mnuRightClick As ContextMenuStrip
     Friend WithEvents mnuStartSession As ToolStripMenuItem
+    Friend WithEvents TestsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents mnuTest1 As ToolStripMenuItem
 End Class

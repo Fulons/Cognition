@@ -175,4 +175,8 @@
     Private Sub btnSend_Click(sender As Object, e As EventArgs) Handles btnSend.Click
         SendPublicMessage()
     End Sub
+
+    Private Sub mnuTest1_Click(sender As Object, e As EventArgs) Handles mnuTest1.Click
+        frmTest.ShowDialog()
+    End Sub
 End Class

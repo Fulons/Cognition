@@ -69,6 +69,7 @@
     <Compile Include="ServerClient\Client.vb" />
     <Compile Include="EventArguments\ClientValidatingEventArgs.vb" />
     <Compile Include="SQLControl.vb" />
+    <Compile Include="TestResult.vb" />
     <Compile Include="User Controls\ctrlIP.Designer.vb">
       <DependentUpon>ctrlIP.vb</DependentUpon>
     </Compile>
