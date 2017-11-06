@@ -25,6 +25,9 @@ Partial Class TestingTest
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(TestingTest))
         Me.pnlPage1 = New System.Windows.Forms.Panel()
+        Me.btnHint3 = New System.Windows.Forms.Button()
+        Me.btnHint2 = New System.Windows.Forms.Button()
+        Me.btnHint1 = New System.Windows.Forms.Button()
         Me.btnFinish = New System.Windows.Forms.Button()
         Me.txtAdress3 = New System.Windows.Forms.TextBox()
         Me.txtAdress2 = New System.Windows.Forms.TextBox()
@@ -66,9 +69,6 @@ Partial Class TestingTest
         Me.btnDigit4 = New System.Windows.Forms.Button()
         Me.btnDigit3 = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.btnHint1 = New System.Windows.Forms.Button()
-        Me.btnHint2 = New System.Windows.Forms.Button()
-        Me.btnHint3 = New System.Windows.Forms.Button()
         Me.tmrAddress = New System.Windows.Forms.Timer(Me.components)
         Me.pnlPage1.SuspendLayout()
         Me.pnlPage2.SuspendLayout()
@@ -90,10 +90,40 @@ Partial Class TestingTest
         Me.pnlPage1.Controls.Add(Me.lblAddress2)
         Me.pnlPage1.Controls.Add(Me.lblAddress1)
         Me.pnlPage1.Controls.Add(Me.lblTask1Description1)
-        Me.pnlPage1.Location = New System.Drawing.Point(4, 541)
+        Me.pnlPage1.Location = New System.Drawing.Point(3, 5)
         Me.pnlPage1.Name = "pnlPage1"
         Me.pnlPage1.Size = New System.Drawing.Size(779, 302)
         Me.pnlPage1.TabIndex = 0
+        '
+        'btnHint3
+        '
+        Me.btnHint3.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnHint3.Location = New System.Drawing.Point(396, 218)
+        Me.btnHint3.Name = "btnHint3"
+        Me.btnHint3.Size = New System.Drawing.Size(73, 41)
+        Me.btnHint3.TabIndex = 12
+        Me.btnHint3.Text = "Hint"
+        Me.btnHint3.UseVisualStyleBackColor = True
+        '
+        'btnHint2
+        '
+        Me.btnHint2.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnHint2.Location = New System.Drawing.Point(396, 171)
+        Me.btnHint2.Name = "btnHint2"
+        Me.btnHint2.Size = New System.Drawing.Size(73, 41)
+        Me.btnHint2.TabIndex = 11
+        Me.btnHint2.Text = "Hint"
+        Me.btnHint2.UseVisualStyleBackColor = True
+        '
+        'btnHint1
+        '
+        Me.btnHint1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnHint1.Location = New System.Drawing.Point(396, 124)
+        Me.btnHint1.Name = "btnHint1"
+        Me.btnHint1.Size = New System.Drawing.Size(73, 41)
+        Me.btnHint1.TabIndex = 10
+        Me.btnHint1.Text = "Hint"
+        Me.btnHint1.UseVisualStyleBackColor = True
         '
         'btnFinish
         '
@@ -200,7 +230,7 @@ Partial Class TestingTest
         Me.pnlPage2.Controls.Add(Me.txtDateMonth)
         Me.pnlPage2.Controls.Add(Me.txtDateDay)
         Me.pnlPage2.Controls.Add(Me.TextBox6)
-        Me.pnlPage2.Location = New System.Drawing.Point(3, 448)
+        Me.pnlPage2.Location = New System.Drawing.Point(3, 5)
         Me.pnlPage2.Name = "pnlPage2"
         Me.pnlPage2.Size = New System.Drawing.Size(508, 87)
         Me.pnlPage2.TabIndex = 1
@@ -531,36 +561,6 @@ Partial Class TestingTest
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
-        'btnHint1
-        '
-        Me.btnHint1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnHint1.Location = New System.Drawing.Point(396, 124)
-        Me.btnHint1.Name = "btnHint1"
-        Me.btnHint1.Size = New System.Drawing.Size(73, 41)
-        Me.btnHint1.TabIndex = 10
-        Me.btnHint1.Text = "Hint"
-        Me.btnHint1.UseVisualStyleBackColor = True
-        '
-        'btnHint2
-        '
-        Me.btnHint2.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnHint2.Location = New System.Drawing.Point(396, 171)
-        Me.btnHint2.Name = "btnHint2"
-        Me.btnHint2.Size = New System.Drawing.Size(73, 41)
-        Me.btnHint2.TabIndex = 11
-        Me.btnHint2.Text = "Hint"
-        Me.btnHint2.UseVisualStyleBackColor = True
-        '
-        'btnHint3
-        '
-        Me.btnHint3.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnHint3.Location = New System.Drawing.Point(396, 218)
-        Me.btnHint3.Name = "btnHint3"
-        Me.btnHint3.Size = New System.Drawing.Size(73, 41)
-        Me.btnHint3.TabIndex = 12
-        Me.btnHint3.Text = "Hint"
-        Me.btnHint3.UseVisualStyleBackColor = True
-        '
         'tmrAddress
         '
         Me.tmrAddress.Interval = 60000
@@ -574,7 +574,7 @@ Partial Class TestingTest
         Me.Controls.Add(Me.pnlPage2)
         Me.Controls.Add(Me.pnlPage1)
         Me.Name = "TestingTest"
-        Me.Size = New System.Drawing.Size(786, 847)
+        Me.Size = New System.Drawing.Size(786, 447)
         Me.pnlPage1.ResumeLayout(False)
         Me.pnlPage1.PerformLayout()
         Me.pnlPage2.ResumeLayout(False)

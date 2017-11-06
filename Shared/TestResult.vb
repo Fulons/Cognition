@@ -1,4 +1,5 @@
-﻿Public Class TestResult
+﻿<Serializable()>
+Public Class TestResult
     Public testDate As DateTime
     Public tasks As New List(Of Task)
 
@@ -10,6 +11,7 @@
         tasks.Add(New Task(taskNum, score))
     End Sub
 
+    <Serializable()>
     Public Class Task
         Public taskNum As Integer
         Public score As Integer

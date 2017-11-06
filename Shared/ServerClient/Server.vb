@@ -12,6 +12,7 @@ Public Class Server
 #End Region
 
 #Region "Events"
+    Public Event ClientDidTest(r As Receiver, results As TestResult)
     Public Event ClientConnected(r As Receiver)
     Public Event ClientVaildating(args As ClientValidatingEventArgs)
     Public Event ClientValidatedSuccess(r As Receiver)
@@ -73,6 +74,10 @@ Public Class Server
 #End Region
 
 #Region "Raise event access functions for Receiver class"
+    Public Sub OnClientDidTest(r As Receiver, results As TestResult)
+        RaiseEvent ClientDidTest(r, results)
+    End Sub
+
     Public Sub OnClientValidating(args As ClientValidatingEventArgs)
         RaiseEvent ClientVaildating(args)
     End Sub

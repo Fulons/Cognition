@@ -123,6 +123,7 @@
         txtAdress3.ReadOnly = False
         pnlPage1.Show()
         tmrAddress.Start()
+        currentTest = 4
     End Sub
 
     '1 minute timer before hints are available
@@ -136,12 +137,13 @@
     'Helper fucntion to check if address task is complete and to trigger next part of the test
     Private Sub CheckAdressCompleted()
         If address1Correct And address2Correct And address3Correct Then
-            pnlPage1.Hide()
-            pnlPage2.Show()
             If currentTest = 1 Then
+                pnlPage1.Hide()
+                pnlPage2.Show()
                 currentTest = 2
             ElseIf currentTest = 4 Then
                 btnFinish.Enabled = True
+                btnFinish.Show()
             End If
         End If
     End Sub

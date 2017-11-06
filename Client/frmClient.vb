@@ -2,6 +2,10 @@
     Public WithEvents client As New [Shared].Client
     Public userName As String = ""
 
+    Public Sub SendTestResult(result As [Shared].TestResult)
+        client.SendResult(result)
+    End Sub
+
     'Adds a global message to the main window
     'Delegate invokation makes sure it is invoked on the right thread
     Delegate Sub AddChatMessageDelegate(user As String, msg As String)

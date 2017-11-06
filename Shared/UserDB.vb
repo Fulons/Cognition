@@ -2,7 +2,7 @@
 
     Private type As DBType              'The type of database being utilised
     Private sqlControl As SQLControl    'Handles a SQL database
-    Private Const SQLTimeFormat As String = " yyyy-MM-dd HH:MM:SS"      'Time format in sql db for datetime types
+    Private Const SQLTimeFormat As String = " yyyy-MM-dd hh:mm:ss"      'Time format in sql db for datetime types
 
     Public Sub InsertTestResults(results As TestResult, username As String)
         Select Case type
@@ -29,7 +29,7 @@
     Public Function GetTestIDSQL(id As Integer, d As DateTime) As Integer
         sqlControl.AddParam("@id", id)
         sqlControl.AddParam("@date", d.ToString(SQLTimeFormat))
-        sqlControl.ExecuteQuery("SELECT Id FROM [TestEntry] WHERE Date = @date AND UserID = @date")
+        sqlControl.ExecuteQuery("SELECT Id FROM [TestEntry] WHERE Date = @date AND UserID = @id")
         Dim idStr As String = RTrim(CType(sqlControl.dataTable.Rows(0).Item(0), String))
         Dim idInt As Integer
         Try
@@ -39,7 +39,6 @@
         End Try
         Return idInt
     End Function
-
 
     Public Sub InsertTestResultSQL(results As TestResult, username As String)
         Dim userid As Integer = GetUserIDSQL(username)

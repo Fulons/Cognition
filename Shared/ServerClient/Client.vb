@@ -142,6 +142,11 @@ Public Class Client
         SendMessage(request)
     End Sub
 
+    Public Sub SendResult(result As TestResult)
+        Dim request As New TestResultRequest(result)
+        SendMessage(request)
+    End Sub
+
     'Adds message to the message queue
     Private Sub SendMessage(message As MessageBase)
         messageQueue.Enqueue(message)

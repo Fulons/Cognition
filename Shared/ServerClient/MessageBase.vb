@@ -94,6 +94,15 @@ Public Class GenericRequest : Inherits RequestMessageBase
 End Class
 
 <Serializable()>
+Public Class TestResultRequest : Inherits RequestMessageBase
+    Public Property result As TestResult
+
+    Public Sub New(result As TestResult)
+        Me.result = result
+    End Sub
+End Class
+
+<Serializable()>
 Public Class ValidationRequest : Inherits RequestMessageBase
     Public Property username As String
     Public Property password As String

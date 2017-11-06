@@ -31,6 +31,13 @@
 #End Region
 
 #Region "Server event handlers"
+
+    Private Sub ClientDidTest(r As [Shared].Receiver, results As [Shared].TestResult) Handles server.ClientDidTest
+        SyncLock userDB
+            userDB.InsertTestResults(results, r.username)
+        End SyncLock
+    End Sub
+
     Private Sub ClientConnected(r As [Shared].Receiver) Handles server.ClientConnected
 
     End Sub

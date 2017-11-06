@@ -118,10 +118,16 @@ Public Class Receiver
             DisconnectRequestHandler(m)
         ElseIf TypeOf m Is PublicMessageRequest Then
             PublicMessageRequestHandler(m)
+        ElseIf TypeOf m Is TestResultRequest Then
+            TestResultRequestHandler(m)
         ElseIf otherSideReciever IsNot Nothing Then
 
             otherSideReciever.SendMessage(m)
         End If
+    End Sub
+
+    Private Sub TestResultRequestHandler(request As TestResultRequest)
+        server.OnClientDidTest(Me, request.result)
     End Sub
 
     Private Sub PublicMessageRequestHandler(request As PublicMessageRequest)
