@@ -183,4 +183,12 @@
     Private Sub mnuTest1_Click(sender As Object, e As EventArgs) Handles mnuTest1.Click
         frmTest.ShowDialog()
     End Sub
+
+    Private Sub mnuLogin_Click(sender As Object, e As EventArgs) Handles mnuLogin.Click
+        frmClientLogin.Show()
+    End Sub
+
+    Private Sub mnuLogout_Click(sender As Object, e As EventArgs) Handles mnuLogout.Click
+        client.Disconnect()
+    End Sub
 End Class

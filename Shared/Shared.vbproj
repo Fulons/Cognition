@@ -66,6 +66,8 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccessControl.vb" />
+    <Compile Include="DBControl.vb" />
     <Compile Include="ServerClient\Client.vb" />
     <Compile Include="EventArguments\ClientValidatingEventArgs.vb" />
     <Compile Include="SQLControl.vb" />

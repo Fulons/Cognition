@@ -116,6 +116,7 @@
         If userDB.VerifyDataBase() = False Then
             MessageBox.Show("Database connection string error", "Error")
             frmServerSettings.ShowDialog()
+            mnuConnect.Enabled = True
         End If
     End Sub
 #End Region

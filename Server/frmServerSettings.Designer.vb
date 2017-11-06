@@ -77,12 +77,12 @@ Partial Class frmServerSettings
         Me.Panel1.Controls.Add(Me.ccAccessDBConnection)
         Me.Panel1.Location = New System.Drawing.Point(6, 65)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(259, 205)
+        Me.Panel1.Size = New System.Drawing.Size(277, 115)
         Me.Panel1.TabIndex = 5
         '
         'ccXMLDBConnection
         '
-        Me.ccXMLDBConnection.Location = New System.Drawing.Point(3, 174)
+        Me.ccXMLDBConnection.Location = New System.Drawing.Point(3, 3)
         Me.ccXMLDBConnection.Name = "ccXMLDBConnection"
         Me.ccXMLDBConnection.Size = New System.Drawing.Size(184, 25)
         Me.ccXMLDBConnection.TabIndex = 2
@@ -96,7 +96,7 @@ Partial Class frmServerSettings
         '
         'ccAccessDBConnection
         '
-        Me.ccAccessDBConnection.Location = New System.Drawing.Point(3, 116)
+        Me.ccAccessDBConnection.Location = New System.Drawing.Point(3, 2)
         Me.ccAccessDBConnection.Name = "ccAccessDBConnection"
         Me.ccAccessDBConnection.Size = New System.Drawing.Size(184, 52)
         Me.ccAccessDBConnection.TabIndex = 0
@@ -104,7 +104,7 @@ Partial Class frmServerSettings
         'btnOK
         '
         Me.btnOK.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnOK.Location = New System.Drawing.Point(178, 273)
+        Me.btnOK.Location = New System.Drawing.Point(174, 186)
         Me.btnOK.Name = "btnOK"
         Me.btnOK.Size = New System.Drawing.Size(75, 23)
         Me.btnOK.TabIndex = 6
@@ -114,7 +114,7 @@ Partial Class frmServerSettings
         'btnCancel
         '
         Me.btnCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.btnCancel.Location = New System.Drawing.Point(12, 273)
+        Me.btnCancel.Location = New System.Drawing.Point(6, 186)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(75, 23)
         Me.btnCancel.TabIndex = 7
@@ -125,7 +125,7 @@ Partial Class frmServerSettings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(265, 308)
+        Me.ClientSize = New System.Drawing.Size(254, 216)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.btnOK)
         Me.Controls.Add(Me.Panel1)

@@ -2,7 +2,11 @@
 
     Public Function GetConnectionString() As String
         Dim ret As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source="
-        ret = ret + txtFilePath.Text + ";Jet OleDb: Database Password=" + txtPassword.Text + ";"
+        If String.IsNullOrEmpty(txtPassword.Text) Then
+            ret = ret + txtFilePath.Text + "; Persist Security Info=False;"
+        Else
+            ret = ret + txtFilePath.Text + ";Jet OleDb: Database Password=" + txtPassword.Text + ";"
+        End If
         Return ret
     End Function
 

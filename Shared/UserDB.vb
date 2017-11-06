@@ -1,7 +1,7 @@
 ﻿Public Class UserDB
 
     Private type As DBType              'The type of database being utilised
-    Private sqlControl As SQLControl    'Handles a SQL database
+    Private sqlControl As DBControl     'Handles a SQL database
     Private Const SQLTimeFormat As String = " yyyy-MM-dd hh:mm:ss"      'Time format in sql db for datetime types
 
     Public Sub InsertTestResults(results As TestResult, username As String)
@@ -9,6 +9,7 @@
             Case DBType.MSSQL
                 InsertTestResultSQL(results, username)
             Case DBType.MSAccess
+                InsertTestResultSQL(results, username)
             Case DBType.XML
         End Select
     End Sub
@@ -28,10 +29,15 @@
 
     Public Function GetTestIDSQL(id As Integer, d As DateTime) As Integer
         sqlControl.AddParam("@id", id)
-        sqlControl.AddParam("@date", d.ToString(SQLTimeFormat))
-        sqlControl.ExecuteQuery("SELECT Id FROM [TestEntry] WHERE Date = @date AND UserID = @id")
+        If TypeOf sqlControl Is SQLControl Then
+            sqlControl.AddParam("@d", d.ToString(SQLTimeFormat))
+            sqlControl.ExecuteQuery("SELECT ID FROM [TestEntry] WHERE dDate = @d AND UserID = @id")
+        ElseIf TypeOf sqlControl Is AccessControl Then
+            sqlControl.ExecuteQuery("SELECT ID FROM [TestEntry] WHERE dDate = #" + d.ToString(SQLTimeFormat) + "# AND UserID = @id")
+        End If
+
         Dim idStr As String = RTrim(CType(sqlControl.dataTable.Rows(0).Item(0), String))
-        Dim idInt As Integer
+            Dim idInt As Integer
         Try
             idInt = Convert.ToInt32(idStr)
         Catch ex As Exception
@@ -46,9 +52,9 @@
             Throw New Exception("Could not retrieve userID")
         End If
         sqlControl.AddParam("@userID", userid)
-        sqlControl.AddParam("@date", results.testDate.ToString(SQLTimeFormat))
-        sqlControl.ExecuteQuery("INSERT INTO TestEntry (UserID, Date)" + vbNewLine +
-                                "VALUES(@userID, @date);")
+        sqlControl.AddParam("@d", results.testDate.ToString(SQLTimeFormat))
+        sqlControl.ExecuteQuery("INSERT INTO TestEntry (UserID, dDate)" + vbNewLine +
+                                "VALUES(@userID, @d);")
         Dim testid As Integer = GetTestIDSQL(userid, results.testDate)
         If testid = -1 Then
             Throw New Exception("Could not retrieve testID")
@@ -68,6 +74,7 @@
             Case DBType.MSSQL
                 Return ValidateUserSQL(username, password)
             Case DBType.MSAccess
+                Return ValidateUserSQL(username, password)
             Case DBType.XML
         End Select
         Return False
@@ -91,6 +98,7 @@
             Case DBType.MSSQL
                 sqlControl = New SQLControl(connectionString)
             Case DBType.MSAccess
+                sqlControl = New AccessControl(connectionString)
             Case DBType.XML
         End Select
     End Sub
@@ -100,6 +108,7 @@
             Case DBType.MSSQL
                 Return sqlControl.VerifyConnection()
             Case DBType.MSAccess
+                Return sqlControl.VerifyConnection()
             Case DBType.XML
         End Select
         Return False

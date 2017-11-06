@@ -73,7 +73,7 @@ Partial Class ctrlAccessDBConnection
         '
         'OpenFileDialog
         '
-        Me.OpenFileDialog.FileName = "OpenFileDialog1"
+        Me.OpenFileDialog.FileName = "C:\Users\Fulons\Desktop\UserData.accdb"
         '
         'ctrlAccessDBConnection
         '

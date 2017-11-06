@@ -17,5 +17,29 @@
         ccSQLDBConnection.txtDatabase.Text = "UserData"
         ccSQLDBConnection.txtUsername.Text = "tmp"
         ccSQLDBConnection.txtPassword.Text = "tmp"
+
+        ccAccessDBConnection.txtFilePath.Text = ccAccessDBConnection.OpenFileDialog.FileName
+
+        ccSQLDBConnection.Show()
+        ccAccessDBConnection.Hide()
+        ccXMLDBConnection.Hide()
+    End Sub
+
+    Private Sub cbDBType_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbDBType.SelectedIndexChanged
+        Select Case cbDBType.Text
+            Case "MS SQL"
+                ccSQLDBConnection.Show()
+                ccAccessDBConnection.Hide()
+                ccXMLDBConnection.Hide()
+            Case "MS Access"
+                ccSQLDBConnection.Hide()
+                ccAccessDBConnection.Show()
+                ccXMLDBConnection.Hide()
+            Case "XML"
+                ccSQLDBConnection.Hide()
+                ccAccessDBConnection.Hide()
+                ccXMLDBConnection.Show()
+
+        End Select
     End Sub
 End Class

@@ -1,11 +1,11 @@
-﻿Imports System.Data.SqlClient
-Public Class SQLControl : Inherits DBControl
-    Private connection As New SqlConnection("Server=209.93.236.96,8379\MSSQLSERVER; Database=TestDatabase; User ID=sa; Password=***;")
-    Private command As SqlCommand
+﻿Imports System.Data.OleDb
+Public Class AccessControl : Inherits DBControl
+    Private connection As New OleDbConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0; Data source = ")
+    Private command As New OleDbCommand
 
-    Public dataAdapter As SqlDataAdapter
+    Public dataAdapter As OleDbDataAdapter
 
-    Public params As New List(Of SqlParameter)
+    Public params As New List(Of OleDbParameter)
 
     Public recordCount As Integer
     Public exception As String
@@ -14,7 +14,7 @@ Public Class SQLControl : Inherits DBControl
     End Sub
 
     Public Sub New(connection As String)
-        Me.connection = New SqlConnection(connection)
+        Me.connection = New OleDbConnection(connection)
     End Sub
 
     Public Overrides Function VerifyConnection() As Boolean
@@ -39,23 +39,23 @@ Public Class SQLControl : Inherits DBControl
         Try
             connection.Open()
 
-            command = New SqlCommand(query, connection)
+            command = New OleDbCommand(query, connection)
             params.ForEach(Sub(p) command.Parameters.Add(p))
 
             params.Clear()
 
             dataTable = New DataTable
-            dataAdapter = New SqlDataAdapter(command)
+            dataAdapter = New OleDbDataAdapter(command)
             recordCount = dataAdapter.Fill(dataTable)
         Catch ex As Exception
-            exception = "ExecuteQuery Error: " & vbNewLine & ex.Message
+            exception = ex.Message
         Finally
             If connection.State = ConnectionState.Open Then connection.Close()
         End Try
     End Sub
 
     Public Overrides Sub AddParam(name As String, value As Object)
-        Dim newParam As New SqlParameter(name, value)
+        Dim newParam As New OleDbParameter(name, value)
         params.Add(newParam)
     End Sub
 
@@ -68,5 +68,4 @@ Public Class SQLControl : Inherits DBControl
         End If
         Return False
     End Function
-
 End Class

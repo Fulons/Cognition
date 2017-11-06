@@ -34,11 +34,11 @@ Partial Class frmClient
         Me.mnuChatLog = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuHelp = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuExit = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TestsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuTest1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.tmrConnectionTimeout = New System.Windows.Forms.Timer(Me.components)
         Me.mnuRightClick = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.mnuStartSession = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TestsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.mnuTest1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.mnuRightClick.SuspendLayout()
         Me.SuspendLayout()
@@ -130,6 +130,19 @@ Partial Class frmClient
         Me.mnuExit.Size = New System.Drawing.Size(152, 22)
         Me.mnuExit.Text = "Exit"
         '
+        'TestsToolStripMenuItem
+        '
+        Me.TestsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuTest1})
+        Me.TestsToolStripMenuItem.Name = "TestsToolStripMenuItem"
+        Me.TestsToolStripMenuItem.Size = New System.Drawing.Size(45, 20)
+        Me.TestsToolStripMenuItem.Text = "Tests"
+        '
+        'mnuTest1
+        '
+        Me.mnuTest1.Name = "mnuTest1"
+        Me.mnuTest1.Size = New System.Drawing.Size(171, 22)
+        Me.mnuTest1.Text = "Test1(Placeholder)"
+        '
         'tmrConnectionTimeout
         '
         Me.tmrConnectionTimeout.Interval = 2000
@@ -145,19 +158,6 @@ Partial Class frmClient
         Me.mnuStartSession.Name = "mnuStartSession"
         Me.mnuStartSession.Size = New System.Drawing.Size(178, 22)
         Me.mnuStartSession.Text = "Start private session"
-        '
-        'TestsToolStripMenuItem
-        '
-        Me.TestsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuTest1})
-        Me.TestsToolStripMenuItem.Name = "TestsToolStripMenuItem"
-        Me.TestsToolStripMenuItem.Size = New System.Drawing.Size(45, 20)
-        Me.TestsToolStripMenuItem.Text = "Tests"
-        '
-        'mnuTest1
-        '
-        Me.mnuTest1.Name = "mnuTest1"
-        Me.mnuTest1.Size = New System.Drawing.Size(171, 22)
-        Me.mnuTest1.Text = "Test1(Placeholder)"
         '
         'frmClient
         '
