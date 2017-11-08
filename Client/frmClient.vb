@@ -1,7 +1,15 @@
 ﻿Public Class frmClient
-    Public WithEvents client As New [Shared].Client
+    Public WithEvents client As New [Shared].Client     'Handles network communication
     Public userName As String = ""
 
+    'Helper function to send message in the public room
+    Private Sub SendPublicMessage()
+        If Not String.IsNullOrEmpty(txtMessageInput.Text) Then
+            client.SendPublicMessage(txtMessageInput.Text)
+        End If
+    End Sub
+
+    'Sends test results to the server to be saved to the database
     Public Sub SendTestResult(result As [Shared].TestResult)
         client.SendResult(result)
     End Sub
@@ -103,38 +111,53 @@
         EndSession()
     End Sub
 
+    'Not used
     Private Sub FileUploadRequest(client As [Shared].Client, args As [Shared].FileUploadRequestEventArguments) Handles client.FileUploadRequest
 
     End Sub
 
+    'Not used
     Private Sub FileUploadProgress(client As [Shared].Client, args As [Shared].FileUploadProgressEventArguments) Handles client.FileUploadProgress
 
     End Sub
 
+    'Not used
     Private Sub ClientDisconnected(client As [Shared].Client) Handles client.ClientDisconnected
 
     End Sub
 
+    'Not used
     Private Sub GenericRequestReceived(client As [Shared].Client, request As [Shared].GenericRequest) Handles client.GenericRequestReceived
 
     End Sub
 
-
+    'Event raised by client when a global message is received
     Private Sub PublicMessageReceived(client As [Shared].Client, request As [Shared].PublicMessageRequest) Handles client.PublicMessageReceived
         AddChatMessage(request.username, request.message)
     End Sub
 
+    'Event raised by client when the user list has been changed
     Private Sub UserListUpdated(client As [Shared].Client, str() As String) Handles client.UserListUpdated
         UpdateUserList(lbUsers, str)
     End Sub
 #End Region
 
-    Private Sub frmClient_Load(sender As Object, e As EventArgs) Handles MyBase.Shown
+#Region "Form event handlers"
+    'Initialise menus to disconnected satus
+    Private Sub frmClient_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        mnuTest1.Enabled = False
+        mnuLogout.Enabled = False
+        mnuChatLog.Enabled = False
+    End Sub
+
+    'Shows login screen on startup
+    Private Sub frmClient_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
         If client.status = [Shared].StatusEnum.Disconnected Then
             frmClientLogin.ShowDialog()
         End If
     End Sub
 
+    'Login connection tiemout timer
     Private Sub tmrConnectionTimeout_Tick(sender As Object, e As EventArgs) Handles tmrConnectionTimeout.Tick
         tmrConnectionTimeout.Stop()
         If client.status = [Shared].StatusEnum.Connected Then
@@ -142,14 +165,17 @@
         End If
         MessageBox.Show("Connection timeout while trying to log in. Please check your internet connection and try again.", "Connection Timeout")
         frmClientLogin.ShowDialog()
+
     End Sub
 
+    'Displays menu when right clicking in user list
     Private Sub lbUsers_MouseClick(sender As Object, e As MouseEventArgs) Handles lbUsers.MouseDown
         If e.Button = MouseButtons.Right Then
             mnuRightClick.Show(Cursor.Position)
         End If
     End Sub
 
+    'User list box right click menu. Sends request for private session to selected user
     Private Sub StartPrivateSessionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles mnuStartSession.Click
         Dim u As String = lbUsers.SelectedItem.ToString()
         If String.IsNullOrEmpty(u) Then Return
@@ -163,12 +189,7 @@
                                   End Sub)
     End Sub
 
-    Private Sub SendPublicMessage()
-        If Not String.IsNullOrEmpty(txtMessageInput.Text) Then
-            client.SendPublicMessage(txtMessageInput.Text)
-        End If
-    End Sub
-
+    'Sends public message if eneter is pressed in message input field
     Private Sub txtMessageInput_KeyDown(sender As Object, e As KeyEventArgs) Handles txtMessageInput.KeyDown
         If e.KeyCode = Keys.Enter Then
             SendPublicMessage()
@@ -176,19 +197,30 @@
         End If
     End Sub
 
+    'Sends public message upon clicking the send button
     Private Sub btnSend_Click(sender As Object, e As EventArgs) Handles btnSend.Click
         SendPublicMessage()
     End Sub
 
+    'Starts test1 from the test menu
     Private Sub mnuTest1_Click(sender As Object, e As EventArgs) Handles mnuTest1.Click
         frmTest.ShowDialog()
+        MessageBox.Show(Me, "", "Test info", MessageBoxButtons.OK)
+
     End Sub
 
+    'Opens the login window
     Private Sub mnuLogin_Click(sender As Object, e As EventArgs) Handles mnuLogin.Click
         frmClientLogin.Show()
     End Sub
 
+    'Disconnects from the server, and correctly sets menu status to disallow functions that is only available when conected
     Private Sub mnuLogout_Click(sender As Object, e As EventArgs) Handles mnuLogout.Click
+        mnuTest1.Enabled = False
+        mnuLogout.Enabled = False
+        mnuLogin.Enabled = True
+        mnuChatLog.Enabled = False
         client.Disconnect()
     End Sub
+#End Region
 End Class

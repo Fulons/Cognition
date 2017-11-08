@@ -62,6 +62,7 @@ Partial Class frmSession
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.CornflowerBlue
         Me.ClientSize = New System.Drawing.Size(923, 587)
         Me.Controls.Add(Me.btnSend)
         Me.Controls.Add(Me.txtMessageInput)

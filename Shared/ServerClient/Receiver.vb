@@ -2,20 +2,22 @@
 Imports System.Threading
 Imports System.Runtime.Serialization.Formatters.Binary
 
+'A class that handles a single client
+'Two threads are used, one for incomming and another for sending messages
 Public Class Receiver
     Private receivingThread As Thread
     Private sendingThread As Thread
 
 #Region "Properties"
-    Public Property ID As Guid
-    Public Property server As Server
-    Public Property client As TcpClient
-    Public Property otherSideReciever As Receiver
-    Public Property status As StatusEnum
-    Public Property messageQueue As Queue(Of MessageBase)
-    Public Property totalByteUsage As Integer
-    Public Property username As String
-    Public Property debugMode As Boolean = False
+    Public Property ID As Guid              'Unique ID (Not currently used, can be used in future to track logins)
+    Public Property server As Server        'The server that owns this reciever
+    Public Property client As TcpClient     '.NET class that handles a tcp connection
+    Public Property otherSideReciever As Receiver           'A reference to another client of which this client is currently in a private session with
+    Public Property status As StatusEnum                    'Status of the client
+    Public Property messageQueue As Queue(Of MessageBase)   'A queue of messages waiting to be sent by the sending thread
+    Public Property totalByteUsage As Integer               'A counter of how many bytes has been sent to the server by this client (Not currently in use, can be used for performance monitoring in future)
+    Public Property username As String                      'The username of the client if logged int
+    Public Property debugMode As Boolean = False            'Used for debugging purposes (No longer in use)
 #End Region
 
 #Region "Constructors"
@@ -47,7 +49,7 @@ Public Class Receiver
     End Sub
 
     'Gracefully stops data transmittion and disconects the client
-    Private Sub Disconnect()
+    Public Sub Disconnect()
         If status = StatusEnum.Disconnected Then Return
         If otherSideReciever IsNot Nothing Then
             Dim m As New EndSessionRequest
@@ -69,6 +71,7 @@ Public Class Receiver
 #End Region
 
 #Region "Threads Methods"
+    'The loop used by the sending thread
     Private Sub SendingMethod()
         While (status <> StatusEnum.Disconnected)
             If (messageQueue.Count > 0) Then
@@ -86,6 +89,7 @@ Public Class Receiver
         End While
     End Sub
 
+    'The loop used by the receiving thread
     Private Sub ReceivingMethod()
         While (status <> StatusEnum.Disconnected)
             If client.Available > 0 Then
@@ -105,6 +109,7 @@ Public Class Receiver
 #End Region
 
 #Region "Message handlers"
+    'Main control structure method for messages received from a client
     Private Sub OnMessageReceived(m As MessageBase)
         If TypeOf m Is ValidationRequest Then
             ValidationRequestHandler(m)
@@ -126,6 +131,7 @@ Public Class Receiver
         End If
     End Sub
 
+    'Sends a message to the server that a user just completed a test
     Private Sub TestResultRequestHandler(request As TestResultRequest)
         server.OnClientDidTest(Me, request.result)
     End Sub
@@ -216,7 +222,7 @@ Public Class Receiver
                 status = StatusEnum.Validated
                 username = request.username
                 response.isValid = True
-                'response.callbackID = request.callbackID should not need this line any longer as it is handled by ValidationResponse base class constructor 
+
                 SendMessage(response)
                 server.OnClientValidatedSuccess(Me)
             End Sub,

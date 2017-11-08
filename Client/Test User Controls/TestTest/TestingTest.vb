@@ -1,28 +1,68 @@
 ﻿Public Class TestingTest
 
+#Region "Variables"
+    'Clock task variables
     Private labels(11) As Label
     Private buttons(11) As Button
     Private numbersLeft As New List(Of Integer)
     Private currentNumbersLeftIndex As Integer = 0
     Private numClockMakingErrors As Integer = 0
 
+    'Address task variables
     Private address1Correct As Boolean = False
     Private address2Correct As Boolean = False
     Private address3Correct As Boolean = False
 
+    'Address hint containers and variables
+    Dim address1Hints() As String = {"Brown", "John"}
+    Dim address1HintsUsed As Integer = 0
+    Dim address2Hints() As String = {"42", "West", "Street"}
+    Dim address2HintsUsed As Integer = 0
+    Dim address3Hints() As String = {"Ken", "Kensing", "Kensingtonw"}
+    Dim address3HintsUsed As Integer = 0
+
+    'Date task variables
     Private dayCorrect As Boolean = False
     Private monthCorrect As Boolean = False
     Private yearCorrect As Boolean = False
 
-    Private currentTest As Integer = 1
+    'The current task index
+    Private currentTask As Integer = 1
 
+    'Score variables
     Private clockTaskErrors As Integer = 0
     Private addressTaskScore As Integer = 0
 
-    Public Event Done(results As [Shared].TestResult)
+
+#End Region
+    Public Event Done(results As [Shared].TestResult)   'Event raised when task is completed
 
     'Initilises the tests, should be called upon opening the parent form
     Public Sub Setup()
+        address1HintsUsed = 0
+        address2HintsUsed = 0
+        address3HintsUsed = 0
+
+        currentNumbersLeftIndex = 0
+        numClockMakingErrors = 0
+
+        'Address task variables
+        address1Correct = False
+        address2Correct = False
+        address3Correct = False
+
+        'Date task variables
+        dayCorrect = False
+        monthCorrect = False
+        yearCorrect = False
+
+        'The current task index
+        currentTask = 1
+
+        'Score variables
+        clockTaskErrors = 0
+        addressTaskScore = 0
+
         'Initialise containers and visibility of controls for clock task
         labels(0) = lblDigit1
         labels(1) = lblDigit2
@@ -54,6 +94,7 @@
         buttons(10) = btnDigitB
         buttons(11) = btnDigitC
 
+        numbersLeft.Clear()
         For i As Integer = 1 To 12
             numbersLeft.Add(i)
         Next
@@ -74,6 +115,11 @@
         'Hide every panel except first task panel
         pnlPage2.Hide()
         pnlPage3.Hide()
+
+        'Clear address field in case test has been run earlier
+        txtAdress1.Text = ""
+        txtAdress2.Text = ""
+        txtAdress3.Text = ""
     End Sub
 
 #Region "Clock task (3)"
@@ -123,7 +169,7 @@
         txtAdress3.ReadOnly = False
         pnlPage1.Show()
         tmrAddress.Start()
-        currentTest = 4
+        currentTask = 4
     End Sub
 
     '1 minute timer before hints are available
@@ -137,11 +183,11 @@
     'Helper fucntion to check if address task is complete and to trigger next part of the test
     Private Sub CheckAdressCompleted()
         If address1Correct And address2Correct And address3Correct Then
-            If currentTest = 1 Then
+            If currentTask = 1 Then
                 pnlPage1.Hide()
                 pnlPage2.Show()
-                currentTest = 2
-            ElseIf currentTest = 4 Then
+                currentTask = 2
+            ElseIf currentTask = 4 Then
                 btnFinish.Enabled = True
                 btnFinish.Show()
             End If
@@ -189,14 +235,6 @@
             address3Correct = False
         End If
     End Sub
-
-    'Address hint containers and variables
-    Dim address1Hints() As String = {"Brown", "John"}
-    Dim address1HintsUsed As Integer = 0
-    Dim address2Hints() As String = {"42", "West", "Street"}
-    Dim address2HintsUsed As Integer = 0
-    Dim address3Hints() As String = {"Ken", "Kensing", "Kensingtonw"}
-    Dim address3HintsUsed As Integer = 0
 
     'Display incremental revealing hints every time hint button is clicked
     Private Sub btnHint1_Click(sender As Object, e As EventArgs) Handles btnHint1.Click
@@ -267,7 +305,7 @@
             txtDateYear.ReadOnly = True
             pnlPage2.Hide()
             pnlPage3.Show()
-            currentTest = 3
+            currentTask = 3
         Else
 
         End If

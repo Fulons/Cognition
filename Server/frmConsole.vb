@@ -1,8 +1,9 @@
 ﻿Public Class frmConsole
-    Public WithEvents server As [Shared].Server
-    Private userDB As [Shared].UserDB
+    Public WithEvents server As [Shared].Server     'Handles network communication
+    Private userDB As [Shared].UserDB               'Handles database communication
 
-#Region "Console text functions"
+#Region "Form control manipulation functions"
+    'Thread safe method to add info line to the console
     Delegate Sub AddConsoleInfoDelegate(str As String)
     Private Sub AddConsoleInfo(str As String)
         If Me.InvokeRequired Then
@@ -15,6 +16,7 @@
         rtxtConsole.AppendText(str + vbNewLine)
     End Sub
 
+    'Thread safe method to add user inffo to the console
     Delegate Sub AddConsoleUserInfoDelegate(user As String, str As String)
     Private Sub AddConsoleUserInfo(user As String, str As String)
         If Me.InvokeRequired Then
@@ -28,30 +30,8 @@
         rtxtConsole.SelectionColor = Color.Black
         rtxtConsole.AppendText(str + vbNewLine)
     End Sub
-#End Region
 
-#Region "Server event handlers"
-
-    Private Sub ClientDidTest(r As [Shared].Receiver, results As [Shared].TestResult) Handles server.ClientDidTest
-        SyncLock userDB
-            userDB.InsertTestResults(results, r.username)
-        End SyncLock
-    End Sub
-
-    Private Sub ClientConnected(r As [Shared].Receiver) Handles server.ClientConnected
-
-    End Sub
-
-    Private Sub ClientVaildating(args As [Shared].ClientValidatingEventArgs) Handles server.ClientVaildating
-        If userDB.ValidateUser(args.request.username, args.request.password) Then
-            args.confirmAction()
-            AddConsoleUserInfo(args.request.username, "connected!")
-        Else
-            args.refuseAction()
-            AddConsoleUserInfo(args.request.username, "failed to connect!")
-        End If
-    End Sub
-
+    'Thread safe method to update the list box of users
     Private Delegate Sub UpdateClientListDelegate()
     Private Sub UpdateClientList()
         If Me.InvokeRequired Then
@@ -74,17 +54,45 @@
         request.list = users
         server.SendToAllReceivers(request)
     End Sub
+#End Region
 
+#Region "Server event handlers"
+
+    'Thread safe function to add test test results to database
+    Private Sub ClientDidTest(r As [Shared].Receiver, results As [Shared].TestResult) Handles server.ClientDidTest
+        SyncLock userDB
+            userDB.InsertTestResults(results, r.username)
+        End SyncLock
+    End Sub
+
+    'Not currently used
+    Private Sub ClientConnected(r As [Shared].Receiver) Handles server.ClientConnected
+
+    End Sub
+
+    'Validates the user and sends reply back to client
+    Private Sub ClientVaildating(args As [Shared].ClientValidatingEventArgs) Handles server.ClientVaildating
+        If userDB.ValidateUser(args.request.username, args.request.password) Then
+            args.confirmAction()
+            AddConsoleUserInfo(args.request.username, "connected!")
+        Else
+            args.refuseAction()
+            AddConsoleUserInfo(args.request.username, "failed to connect!")
+        End If
+    End Sub
+
+    'Put message in console when a client has been validated
     Private Sub ClientValidatedSuccess(r As [Shared].Receiver) Handles server.ClientValidatedSuccess
         AddConsoleUserInfo(r.username, "validated!")
         UpdateClientList()
     End Sub
 
+    'Put message in console when a client has failed validation
     Private Sub ClientValidatedFail(r As [Shared].Receiver) Handles server.ClientValidatedFail
         AddConsoleUserInfo(r.username, "validation success!")
-
     End Sub
 
+    'Put message in console when a client disconects
     Private Sub ClientDisconnected(r As [Shared].Receiver) Handles server.ClientDisconnected
         AddConsoleUserInfo(r.username, "disconnected!")
         UpdateClientList()
@@ -92,10 +100,18 @@
 #End Region
 
 #Region "Form event handlers"
+
+    'Displays server settings on startup
     Private Sub frmConsole_Load(sender As Object, e As EventArgs) Handles MyBase.Shown
         frmServerSettings.ShowDialog()
     End Sub
 
+    'Initiliase mnu items on startup
+    Private Sub frmConsole_Load_1(sender As Object, e As EventArgs) Handles MyBase.Load
+        mnuDisconnect.Enabled = False
+    End Sub
+
+    'Starts the server to begin listening fo clients
     Private Sub ConnectToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles mnuConnect.Click
         'Starts the server
         server = New [Shared].Server(frmServerSettings.txtPort.Text)
@@ -117,8 +133,15 @@
             MessageBox.Show("Database connection string error", "Error")
             frmServerSettings.ShowDialog()
             mnuConnect.Enabled = True
+        Else
+            mnuDisconnect.Enabled = True
         End If
     End Sub
-#End Region
 
+    Private Sub mnuDisconnect_Click(sender As Object, e As EventArgs) Handles mnuDisconnect.Click
+        server.Shutdown()
+        mnuConnect.Enabled = True
+        mnuDisconnect.Enabled = False
+    End Sub
+#End Region
 End Class

@@ -1,4 +1,5 @@
 ﻿Imports System.Data.OleDb
+'Handles an access database
 Public Class AccessControl : Inherits DBControl
     Private connection As New OleDbConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0; Data source = ")
     Private command As New OleDbCommand
@@ -17,6 +18,7 @@ Public Class AccessControl : Inherits DBControl
         Me.connection = New OleDbConnection(connection)
     End Sub
 
+    'Verifies the connection string
     Public Overrides Function VerifyConnection() As Boolean
         Try
             Me.connection.Open()
@@ -33,6 +35,7 @@ Public Class AccessControl : Inherits DBControl
         End If
     End Function
 
+    'Execute a query
     Public Overrides Sub ExecuteQuery(query As String)
         recordCount = 0
         exception = ""
@@ -54,11 +57,13 @@ Public Class AccessControl : Inherits DBControl
         End Try
     End Sub
 
+    'Adds a parameter to be used for the next query
     Public Overrides Sub AddParam(name As String, value As Object)
         Dim newParam As New OleDbParameter(name, value)
         params.Add(newParam)
     End Sub
 
+    'Check if query returned any exceptions
     Public Overrides Function HasException(Optional Report As Boolean = False) As Boolean
         If String.IsNullOrEmpty(exception) = False Then
             If Report = True Then

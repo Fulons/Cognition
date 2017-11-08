@@ -1,5 +1,4 @@
-﻿
-Imports System.Net
+﻿Imports System.Net
 Imports System.Net.Sockets
 
 Public Class Server
@@ -46,23 +45,29 @@ Public Class Server
             isStarted = False
 
             Debug.WriteLine("Server stoped!")
+            For Each r As Receiver In receivers
+                r.Disconnect()
+            Next
         End If
     End Sub
 
+    'Helper method to send message to everyone
     Public Sub SendToAllReceivers(msg As MessageBase)
-        For Each receiver In receivers
+        For Each receiver As Receiver In receivers
             receiver.SendMessage(msg)
         Next
     End Sub
 #End Region
 
 #Region "Incomming connections method"
+    'Setup asycn listening for new connections
     Private Sub WaitForConnection()     '2. Wait for incomming connection
         listener.BeginAcceptTcpClient(New AsyncCallback(AddressOf ConnectionHandler), Nothing)
     End Sub
 
     'Async callback to initiate new client
     Private Sub ConnectionHandler(ar As IAsyncResult)
+        If isStarted = False Then Return
         SyncLock receivers
             Dim newClient As New Receiver(listener.EndAcceptTcpClient(ar), Me)  '3. Acept Connection
             newClient.Start()           '4. Starts reaciever threads
