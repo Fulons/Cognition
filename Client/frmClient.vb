@@ -144,10 +144,10 @@
 
 #Region "Form event handlers"
     'Initialise menus to disconnected satus
-    Private Sub frmClient_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        mnuTest1.Enabled = False
-        mnuLogout.Enabled = False
-        mnuChatLog.Enabled = False
+    Private Sub frmClient_Load(sender As Object, e As EventArgs) Handles MyBase.Load    'Temporary removed its functionality to get it to work for testing purposes
+        'mnuTest1.Enabled = False
+        'mnuLogout.Enabled = False
+        'mnuChatLog.Enabled = False
     End Sub
 
     'Shows login screen on startup
@@ -223,4 +223,8 @@
         client.Disconnect()
     End Sub
 #End Region
+
+    Private Sub mnuHelp_Click(sender As Object, e As EventArgs) Handles mnuHelp.Click
+        frmHelp.ShowDialog()
+    End Sub
 End Class

@@ -11,8 +11,9 @@
             Me.Hide()
             frmClient.tmrConnectionTimeout.Start()      'Starts the login timeout timer
             frmClient.userName = txtUsername.Text
+
             frmClient.client.Login(txtUsername.Text, txtPassword.Text,
-                                   Sub(SenderClient, response)                  'Lambda function to be called upon response from server
+                                   Sub(senderClient, response)
                                        If response.isValid Then                 'If login is accepted
                                            frmClient.client.status = [Shared].StatusEnum.Connected
                                            frmClient.mnuLogin.Enabled = False
@@ -28,6 +29,7 @@
                                            MessageBox.Show("Login failed! Please assure that username and password is typed in correctly")
                                        End If
                                    End Sub)
+                                   
         End If
     End Sub
 End Class

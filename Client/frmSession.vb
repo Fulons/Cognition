@@ -39,8 +39,7 @@
     'If session window is closed by user it will send a seesion end message to remote client 
     Private Sub frmSession_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         If e.CloseReason = CloseReason.UserClosing Then
-            frmClient.client.EndCurrentSession(Sub(c, r)    'Empty lambda function as end session response is not in use yet
-                                               End Sub)
+            frmClient.client.EndCurrentSession(Sub(c, r) Return)    'Empty lambda function as end session response is not in use yet
         End If
     End Sub
 End Class

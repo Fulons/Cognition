@@ -197,10 +197,10 @@ Public Class Client
     Public Sub OnMessageReceived(msg As MessageBase)
         Dim type As Type = msg.GetType()
         If TypeOf msg Is ResponseMessageBase Then
-            'GenericResponse
-            InvokeMessageCallBack(msg, CType(msg, ResponseMessageBase).DeleteCallBackAfterInvoke)   'Handles login
+            'Login callback invocation
+            InvokeMessageCallBack(msg, CType(msg, ResponseMessageBase).DeleteCallBackAfterInvoke)
 
-            'RemoteDesktopResponse
+            'File uplaod response
             If TypeOf msg Is FileUploadResponse Then
                 FileUploadResponseHandler(msg)
             End If
@@ -233,7 +233,6 @@ Public Class Client
     'TODO: Need error handling
     Public Sub FileUploadResponseHandler(response As FileUploadResponse)
         Dim request As New FileUploadRequest(response)
-
         If response.hasError = False Then
             If request.currentPosition < request.totalBytes Then
                 request.bytesToWrite = FileHelper.SampleBytesFromFile(request.sourceFilePath, request.currentPosition, request.bufferSize)

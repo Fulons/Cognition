@@ -70,6 +70,9 @@ Partial Class TestingTest
         Me.btnDigit3 = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.tmrAddress = New System.Windows.Forms.Timer(Me.components)
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.pnlPage1.SuspendLayout()
         Me.pnlPage2.SuspendLayout()
         Me.pnlPage3.SuspendLayout()
@@ -90,7 +93,7 @@ Partial Class TestingTest
         Me.pnlPage1.Controls.Add(Me.lblAddress2)
         Me.pnlPage1.Controls.Add(Me.lblAddress1)
         Me.pnlPage1.Controls.Add(Me.lblTask1Description1)
-        Me.pnlPage1.Location = New System.Drawing.Point(3, 5)
+        Me.pnlPage1.Location = New System.Drawing.Point(4, 6)
         Me.pnlPage1.Name = "pnlPage1"
         Me.pnlPage1.Size = New System.Drawing.Size(779, 302)
         Me.pnlPage1.TabIndex = 0
@@ -161,7 +164,7 @@ Partial Class TestingTest
         '
         'lblTask1Description2
         '
-        Me.lblTask1Description2.BackColor = System.Drawing.SystemColors.Control
+        Me.lblTask1Description2.BackColor = System.Drawing.Color.CornflowerBlue
         Me.lblTask1Description2.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.lblTask1Description2.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTask1Description2.Location = New System.Drawing.Point(3, 41)
@@ -213,7 +216,7 @@ Partial Class TestingTest
         '
         'lblTask1Description1
         '
-        Me.lblTask1Description1.BackColor = System.Drawing.SystemColors.Control
+        Me.lblTask1Description1.BackColor = System.Drawing.Color.CornflowerBlue
         Me.lblTask1Description1.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.lblTask1Description1.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTask1Description1.Location = New System.Drawing.Point(3, 3)
@@ -230,7 +233,7 @@ Partial Class TestingTest
         Me.pnlPage2.Controls.Add(Me.txtDateMonth)
         Me.pnlPage2.Controls.Add(Me.txtDateDay)
         Me.pnlPage2.Controls.Add(Me.TextBox6)
-        Me.pnlPage2.Location = New System.Drawing.Point(3, 5)
+        Me.pnlPage2.Location = New System.Drawing.Point(4, 4)
         Me.pnlPage2.Name = "pnlPage2"
         Me.pnlPage2.Size = New System.Drawing.Size(508, 87)
         Me.pnlPage2.TabIndex = 1
@@ -267,7 +270,7 @@ Partial Class TestingTest
         '
         'TextBox6
         '
-        Me.TextBox6.BackColor = System.Drawing.SystemColors.Control
+        Me.TextBox6.BackColor = System.Drawing.Color.CornflowerBlue
         Me.TextBox6.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox6.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox6.Location = New System.Drawing.Point(3, 3)
@@ -276,11 +279,14 @@ Partial Class TestingTest
         Me.TextBox6.ReadOnly = True
         Me.TextBox6.Size = New System.Drawing.Size(502, 32)
         Me.TextBox6.TabIndex = 10
-        Me.TextBox6.Text = "Please type the date into the below"
+        Me.TextBox6.Text = "Please type todays date below"
         '
         'pnlPage3
         '
         Me.pnlPage3.AllowDrop = True
+        Me.pnlPage3.Controls.Add(Me.Label3)
+        Me.pnlPage3.Controls.Add(Me.Label2)
+        Me.pnlPage3.Controls.Add(Me.Label1)
         Me.pnlPage3.Controls.Add(Me.lblCurrentNumber)
         Me.pnlPage3.Controls.Add(Me.lblDigitB)
         Me.pnlPage3.Controls.Add(Me.lblDigitA)
@@ -307,7 +313,7 @@ Partial Class TestingTest
         Me.pnlPage3.Controls.Add(Me.btnDigit4)
         Me.pnlPage3.Controls.Add(Me.btnDigit3)
         Me.pnlPage3.Controls.Add(Me.PictureBox1)
-        Me.pnlPage3.Location = New System.Drawing.Point(3, 3)
+        Me.pnlPage3.Location = New System.Drawing.Point(4, 6)
         Me.pnlPage3.Name = "pnlPage3"
         Me.pnlPage3.Size = New System.Drawing.Size(779, 439)
         Me.pnlPage3.TabIndex = 2
@@ -316,7 +322,7 @@ Partial Class TestingTest
         '
         Me.lblCurrentNumber.AutoSize = True
         Me.lblCurrentNumber.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCurrentNumber.Location = New System.Drawing.Point(423, 99)
+        Me.lblCurrentNumber.Location = New System.Drawing.Point(530, 189)
         Me.lblCurrentNumber.Name = "lblCurrentNumber"
         Me.lblCurrentNumber.Size = New System.Drawing.Size(96, 31)
         Me.lblCurrentNumber.TabIndex = 25
@@ -565,6 +571,36 @@ Partial Class TestingTest
         '
         Me.tmrAddress.Interval = 60000
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(409, 9)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(344, 31)
+        Me.Label1.TabIndex = 26
+        Me.Label1.Text = "Create the clock by clicking"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(409, 40)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(363, 31)
+        Me.Label2.TabIndex = 27
+        Me.Label2.Text = "on the box where the number"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(411, 71)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(58, 31)
+        Me.Label3.TabIndex = 28
+        Me.Label3.Text = "fits."
+        '
         'TestingTest
         '
         Me.AllowDrop = True
@@ -632,4 +668,7 @@ Partial Class TestingTest
     Friend WithEvents btnHint2 As Button
     Friend WithEvents btnHint1 As Button
     Friend WithEvents tmrAddress As Timer
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents Label2 As System.Windows.Forms.Label
 End Class
